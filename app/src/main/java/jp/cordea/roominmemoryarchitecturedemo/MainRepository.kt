@@ -11,6 +11,6 @@ class MainRepository @Inject constructor(
 ) {
     val count get() = dataSource.count
 
-    fun updateCount(count: Int) =
-        Completable.fromCallable { dataSource.updateCount(count) }.subscribeOn(Schedulers.io())
+    fun incrementCount() =
+        Completable.fromCallable { dataSource.incrementCount() }.subscribeOn(Schedulers.io())
 }

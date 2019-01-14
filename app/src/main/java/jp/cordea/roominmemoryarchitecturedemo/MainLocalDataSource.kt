@@ -14,7 +14,8 @@ class MainLocalDataSource @Inject constructor(
 
     val count get() = Transformations.map(mainStateDao.getMainState(PRIMARY_ID)) { it?.count ?: 0 }
 
-    fun updateCount(count: Int) {
-        mainStateDao.insertMainState(MainState(PRIMARY_ID, count))
+    fun incrementCount() {
+        val current = mainStateDao.getCurrentMainState(PRIMARY_ID)
+        mainStateDao.insertMainState(MainState(PRIMARY_ID, (current?.count ?: 0) + 1))
     }
 }
