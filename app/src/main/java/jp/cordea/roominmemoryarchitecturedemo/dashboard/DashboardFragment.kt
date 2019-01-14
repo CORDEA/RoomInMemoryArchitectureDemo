@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import jp.cordea.roominmemoryarchitecturedemo.R
+import jp.cordea.roominmemoryarchitecturedemo.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
     companion object {
@@ -20,5 +20,8 @@ class DashboardFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_dashboard, container, false)
+    ): View {
+        val binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 }
