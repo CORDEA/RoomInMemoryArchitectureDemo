@@ -1,4 +1,4 @@
-package jp.cordea.roominmemoryarchitecturedemo
+package jp.cordea.roominmemoryarchitecturedemo.dashboard
 
 
 import android.os.Bundle
@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import jp.cordea.roominmemoryarchitecturedemo.R
 
-class HomeFragment : Fragment() {
+class DashboardFragment : Fragment() {
     companion object {
-        fun newInstance() = HomeFragment()
+        fun newInstance() = DashboardFragment()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +18,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_home, container, false)
+    ): View = inflater.inflate(R.layout.fragment_dashboard, container, false)
 }

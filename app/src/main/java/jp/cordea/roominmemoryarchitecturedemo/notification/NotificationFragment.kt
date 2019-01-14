@@ -1,15 +1,15 @@
-package jp.cordea.roominmemoryarchitecturedemo
-
+package jp.cordea.roominmemoryarchitecturedemo.notification
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import jp.cordea.roominmemoryarchitecturedemo.R
 
-class DashboardFragment : Fragment() {
+class NotificationFragment : Fragment() {
     companion object {
-        fun newInstance() = DashboardFragment()
+        fun newInstance() = NotificationFragment()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,9 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_dashboard, container, false)
+    ): View = inflater.inflate(R.layout.fragment_notification, container, false)
+
 }

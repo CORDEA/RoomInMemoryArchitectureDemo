@@ -3,6 +3,9 @@ package jp.cordea.roominmemoryarchitecturedemo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import jp.cordea.roominmemoryarchitecturedemo.dashboard.DashboardFragment
+import jp.cordea.roominmemoryarchitecturedemo.home.HomeFragment
+import jp.cordea.roominmemoryarchitecturedemo.notification.NotificationFragment
 
 class MainActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
