@@ -1,5 +1,6 @@
 package jp.cordea.roominmemoryarchitecturedemo
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -12,7 +13,7 @@ class MainLocalDataSource @Inject constructor(
         private const val PRIMARY_ID = 1L
     }
 
-    val count get() = Transformations.map(mainStateDao.getMainState(PRIMARY_ID)) { it?.count ?: 0 }
+    val count: LiveData<Int> get() = Transformations.map(mainStateDao.getMainState(PRIMARY_ID)) { it?.count ?: 0 }
 
     fun incrementCount() {
         val current = mainStateDao.getCurrentMainState(PRIMARY_ID)
