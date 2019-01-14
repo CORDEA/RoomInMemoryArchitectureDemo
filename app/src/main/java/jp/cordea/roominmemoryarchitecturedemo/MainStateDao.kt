@@ -12,5 +12,5 @@ interface MainStateDao {
     fun insertMainState(mainState: MainState)
 
     @Query("SELECT * FROM main_state WHERE id = :id")
-    fun getMainState(id: Long): LiveData<MainState>
+    fun getMainState(id: Long): LiveData<MainState?>
 }

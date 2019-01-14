@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.jakewharton.rxbinding3.view.clicks
 import dagger.android.support.AndroidSupportInjection
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
-import io.reactivex.rxkotlin.subscribeBy
 import jp.cordea.roominmemoryarchitecturedemo.databinding.FragmentDashboardBinding
 import javax.inject.Inject
 
@@ -37,7 +37,9 @@ class DashboardFragment : Fragment() {
         val binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         binding.button.clicks()
-            .subscribeBy { viewModel.value.clicked() }
+            .concatMapCompletable { viewModel.value.clicked() }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
             .addTo(compositeDisposable)
 
         viewModel.value.text

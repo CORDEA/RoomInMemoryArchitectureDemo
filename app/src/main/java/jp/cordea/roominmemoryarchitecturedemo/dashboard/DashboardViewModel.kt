@@ -10,7 +10,5 @@ class DashboardViewModel @Inject constructor(
 ) : ViewModel() {
     val text get() = Transformations.map(repository.count) { it.toString() }
 
-    fun clicked() {
-        repository.updateCount((repository.count.value ?: 0) + 1)
-    }
+    fun clicked() = repository.updateCount((repository.count.value ?: 0) + 1)
 }
