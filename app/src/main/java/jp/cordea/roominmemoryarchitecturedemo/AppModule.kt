@@ -13,7 +13,7 @@ class AppModule {
 
     @Provides
     fun provideAppDatabase(context: Context): AppDatabase =
-        Room.databaseBuilder(context, AppDatabase::class.java, "roominmemoryarchitecturedemo").build()
+        Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
 
     @Provides
     fun provideMainStateDao(database: AppDatabase): MainStateDao = database.mainStateDao()
