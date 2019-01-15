@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 )
 class MainState(
     @PrimaryKey val id: Long,
-    val count: Int
+    val count: Int,
+    val liked: Boolean
 )
