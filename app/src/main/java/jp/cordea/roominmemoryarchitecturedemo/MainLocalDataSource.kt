@@ -18,18 +18,15 @@ class MainLocalDataSource @Inject constructor(
 
     fun incrementCount() {
         val current = current
-        update(current, current?.liked ?: false)
+        mainStateDao.insertMainState(
+            MainState(PRIMARY_ID, (current?.count ?: 0) + 1, current?.liked ?: false)
+        )
     }
 
-    fun like() {
-        update(current, true)
-    }
-
-    fun unlike() {
-        update(current, false)
-    }
-
-    private fun update(current: MainState?, liked: Boolean) {
-        mainStateDao.insertMainState(MainState(PRIMARY_ID, (current?.count ?: 0) + 1, liked))
+    fun switchFavorite() {
+        val current = current
+        mainStateDao.insertMainState(
+            MainState(PRIMARY_ID, current?.count ?: 0, (current?.liked ?: false).not())
+        )
     }
 }

@@ -14,9 +14,6 @@ class MainRepository @Inject constructor(
     fun incrementCount(): Completable =
         Completable.fromCallable { dataSource.incrementCount() }.subscribeOn(Schedulers.io())
 
-    fun like(): Completable =
-        Completable.fromCallable { dataSource.like() }.subscribeOn(Schedulers.io())
-
-    fun unlike(): Completable =
-        Completable.fromCallable { dataSource.unlike() }.subscribeOn(Schedulers.io())
+    fun switchFavorite(): Completable =
+        Completable.fromCallable { dataSource.switchFavorite() }.subscribeOn(Schedulers.io())
 }
