@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jakewharton.rxbinding3.view.clicks
 import dagger.android.AndroidInjection
@@ -53,6 +54,17 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()
             .addTo(compositeDisposable)
+
+        viewModel.value.liked
+            .observe(this, Observer {
+                binding.fab.setImageResource(
+                    if (it) {
+                        R.drawable.ic_favorite_white_24dp
+                    } else {
+                        R.drawable.ic_favorite_border_white_24dp
+                    }
+                )
+            })
 
         supportFragmentManager
             .beginTransaction()

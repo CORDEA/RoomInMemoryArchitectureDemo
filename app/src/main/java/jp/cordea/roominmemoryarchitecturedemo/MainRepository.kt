@@ -10,6 +10,7 @@ class MainRepository @Inject constructor(
     private val dataSource: MainLocalDataSource
 ) {
     val count get() = dataSource.count
+    val liked get() = dataSource.liked
 
     fun incrementCount(): Completable =
         Completable.fromCallable { dataSource.incrementCount() }.subscribeOn(Schedulers.io())

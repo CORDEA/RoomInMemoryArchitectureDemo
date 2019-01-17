@@ -13,7 +13,9 @@ class MainLocalDataSource @Inject constructor(
         private const val PRIMARY_ID = 1L
     }
 
-    val count: LiveData<Int> get() = Transformations.map(mainStateDao.getMainState(PRIMARY_ID)) { it?.count ?: 0 }
+    private val state get() = mainStateDao.getMainState(PRIMARY_ID)
+    val count: LiveData<Int> get() = Transformations.map(state) { it?.count ?: 0 }
+    val liked: LiveData<Boolean> get() = Transformations.map(state) { it?.liked ?: false }
     private val current get() = mainStateDao.getCurrentMainState(PRIMARY_ID)
 
     fun incrementCount() {
